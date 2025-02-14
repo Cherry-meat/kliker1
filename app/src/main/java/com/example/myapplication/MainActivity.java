@@ -28,4 +28,40 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
     }
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if (savedInstanceState != null &&
+                savedInstanceState.containsKey("counter")) {
+            counter = savedInstanceState.getInt("counter");
+        }
+        Log.d(TAG, "onRestoreInstanceState");
+    }
+    @Override
+    protected void onSaveInstanceState(Bundle autState){
+        super.onSaveInstanceState(autState);
+        int count = 0;
+        autState.putInt("Нажалось", count);
+        Log.d("Instens","onSave");
+        Toast.makeText(this, "onSave",Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    protected  void onStart(){
+        super.onStart();
+        Log.d("Instens", "onStart");
+        Toast.makeText(this, "onStart", Toast.LENGTH_LONG).show();
+    }
+    @Override
+    protected  void onResume(){
+        super.onResume();
+        Log.d("Instens", "onResume");
+        Toast.makeText(this, "onResume", Toast.LENGTH_LONG).show();
+    }
+    @Override
+    protected  void onPause(){
+        super.onPause();
+        Log.d("Instens", "onPause");
+        Toast.makeText(this, "onPause", Toast.LENGTH_LONG).show();
+    }
 }
